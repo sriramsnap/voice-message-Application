@@ -1,28 +1,30 @@
 <ion-header>
+    <ion-navbar>
+        <ion-title align="center">Login</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    
-    <h1 align="center">Login</h1>
-    
-<ion-list>
+    <form #LoginForm='ngForm' (ngSubmit)="onSubmit(LoginForm)">
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+            </ion-item>
 
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+            </ion-item>
 
 
-    <ion-item>
-  <ion-label>Remember Me</ion-label>
-  <ion-checkbox color="dark" checked="true"></ion-checkbox>
-</ion-item>
-    </ion-list>
-    <br><br>
-    <p align="center"><button ion-button (click)="loginData()">Submit</button><br>Register</p>
+            <ion-item>
+                <ion-label>Remember Me</ion-label>
+                <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <br><br>
+        <div align="center"><button ion-button block primary [disabled]="!LoginForm.valid">Submit</button><br></div>
+        <p align="center" (click)="loginData()">Register</p>
+    </form>
 </ion-content>
